@@ -12,8 +12,9 @@ import imageio_ffmpeg
 
 app = Flask(__name__)
 
+import sys
+
 FFMPEG_PATH = imageio_ffmpeg.get_ffmpeg_exe()
-YTDLP_PATH = shutil.which("yt-dlp")
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 
 HTML_PAGE = '''<!DOCTYPE html>
@@ -241,7 +242,7 @@ def download_video(url, sessionid, output_dir):
         f.write(f".instagram.com\tTRUE\t/\tTRUE\t0\tsessionid\t{sessionid}\n")
 
     cmd = [
-        YTDLP_PATH,
+        sys.executable, "-m", "yt_dlp",
         "--ffmpeg-location", FFMPEG_PATH,
         "--cookies", cookies_path,
         "-o", output_path,
