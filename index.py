@@ -29,7 +29,7 @@ HTML_PAGE = '''<!DOCTYPE html>
       background: #0a0a0a; color: #e0e0e0;
       min-height: 100vh; display: flex; align-items: center; justify-content: center;
     }
-    .container { width: 100%%; max-width: 640px; padding: 24px; }
+    .container { width: 100%; max-width: 640px; padding: 24px; }
     h1 {
       font-size: 28px; font-weight: 700; text-align: center; margin-bottom: 8px;
       background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
@@ -75,7 +75,7 @@ HTML_PAGE = '''<!DOCTYPE html>
     .status.visible { display: block; }
     .spinner {
       display: inline-block; width: 16px; height: 16px;
-      border: 2px solid #555; border-top-color: #dc2743; border-radius: 50%%;
+      border: 2px solid #555; border-top-color: #dc2743; border-radius: 50%;
       animation: spin 0.8s linear infinite; vertical-align: middle; margin-right: 8px;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
@@ -208,7 +208,7 @@ HTML_PAGE = '''<!DOCTYPE html>
       finally { status.classList.remove('visible'); submitBtn.disabled = false; }
     }
     function showError(msg) { error.textContent = msg; error.classList.add('visible'); }
-    function formatTime(s) { return Math.floor(s/60)+':'+Math.floor(s%%60).toString().padStart(2,'0'); }
+    function formatTime(s) { return Math.floor(s/60)+':'+Math.floor(s%60).toString().padStart(2,'0'); }
     function escapeHtml(t) { const d=document.createElement('div'); d.textContent=t; return d.innerHTML; }
     function switchTab(tab) {
       document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
