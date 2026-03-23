@@ -229,7 +229,7 @@
       statusText.textContent = '영상 다운로드 → 음성 인식 중...';
 
       try {
-        const res = await fetch('/api/transcribe', {
+        const res = await fetch('/api', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ url, sessionid }),
