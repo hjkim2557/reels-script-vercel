@@ -84,9 +84,11 @@ def transcribe_with_groq(audio_path):
     return {"full_text": transcription.text.strip(), "segments": segments}
 
 
-@app.route("/api", methods=["POST"])
-@app.route("/api/", methods=["POST"])
+@app.route("/api", methods=["GET", "POST"])
+@app.route("/api/", methods=["GET", "POST"])
 def transcribe():
+    if request.method == "GET":
+        return jsonify({"status": "ok"})
     body = request.get_json()
     url = body.get("url", "").strip()
     sessionid = body.get("sessionid", "").strip()
